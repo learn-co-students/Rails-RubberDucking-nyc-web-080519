@@ -10,7 +10,7 @@
   </ul>
 <% end %>
 
-<%= form_for :student do |f| %>
+<%= form_for @student do |f| %>
   Name: <%= f.text_field :name %>
   Mod: <%= f.number_field :mod, in: 1..5 %>
   <%= f.submit :submit %>

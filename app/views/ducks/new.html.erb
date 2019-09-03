@@ -11,7 +11,7 @@
   </ul>
 <% end %>
 
-<%= form_for :duck do |f| %>
+<%= form_for @duck do |f| %>
     Name: <%= f.text_field :name  %>
     Description: <%= f.text_field :description %>
     Student: <%= f.collection_select :student_id, @students, :id, :name%>
