@@ -1,0 +1,17 @@
+<h2>Student Edit Page</h2>
+
+<% if flash[:errors] %>
+  <ul>
+    <% flash[:errors].each do |error| %>
+    <li>
+        <%= error  %>
+    </li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= form_for @student do |f| %>
+  Name: <%= f.text_field :name %>
+  Mod: <%= f.number_field :mod, in: 1..5 %>
+  <%= f.submit :submit %>
+<% end %>

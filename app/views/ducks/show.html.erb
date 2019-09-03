@@ -1,0 +1,9 @@
+<h2>Duck Show Page</h2>
+
+Name: <%= @duck.name %>
+<br>
+Description: <%= @duck.description %>
+<br>
+Student: <%= link_to @duck.student.name, student_url(@duck.student) %>
+<br>
+<%= link_to 'Edit Me', edit_duck_url(@duck) %>
