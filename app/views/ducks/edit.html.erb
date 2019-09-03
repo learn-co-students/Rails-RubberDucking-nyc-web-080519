@@ -1,0 +1,15 @@
+<h1>Edit Duck</h1>
+
+<% if flash[:messages] %>
+    <h2><%= flash[:messages] %></h2>
+<% end %>
+
+<%= form_for @duck do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    <%= f.label :description %>
+    <%= f.text_area :description %>
+    <%= f.label :student_id, :Student %>
+    <%= f.collection_select :student_id, @students, :id, :name, prompt: 'Select a Student' %>
+    <%= f.submit :'Edit Duck' %>
+<% end %>
