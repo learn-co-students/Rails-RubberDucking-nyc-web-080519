@@ -1,0 +1,11 @@
+<h3><%= @duck.name %></h3>
+<h2><%= @duck.description %></h2>
+<h2>Owning Student: <%= link_to @duck.student.name, student_path(@duck.student.id) %></h2>
+
+<%= button_to "Edit this Duck", edit_duck_path(@duck.id), method: :get %>
+</br>
+<%= button_to "Delete this Duck", duck_path(@duck.id), method: :delete %>
+</br>
+<%= link_to "go back to all ducks", ducks_path%>
+
+

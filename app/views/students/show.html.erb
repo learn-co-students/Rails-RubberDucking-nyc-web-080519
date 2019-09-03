@@ -1,0 +1,18 @@
+<h1>Student Details:</h1>
+
+<h3>Name: <%= @student.name %></h3>
+<h3>Module number: <%= @student.mod %></h3>
+
+<h2>Ducks owned by this student:</h2>
+<ul>
+  <%@student.ducks.each do |duck| %>
+    <%= link_to duck.name, duck_path(duck.id) %></br>
+    <% end %>
+</ul>
+
+<%= button_to "Edit this Student", edit_student_path(@student.id), method: :get %>
+</br>
+<%= button_to "Delete this Student", student_path(@student.id), method: :delete %>
+</br>
+<%= link_to "go back to all students", students_path%>
+
