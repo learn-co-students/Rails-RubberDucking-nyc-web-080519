@@ -1,0 +1,18 @@
+<h1><%= @student.name %></h1>
+<h3>Current Mod: <%= @student.mod %></h3>
+<% if @student.ducks.empty? %>
+    <h5>This student currently has no ducks</h5>
+<% else %>
+    <h5>The Ducks Belonging to <%= @student.name %>:</h5>
+    <ul>
+        <% @student.ducks.each do |d| %>
+            <li><%= link_to d.name, duck_path(d.id)%></li>
+        <% end %>
+    </ul>
+<% end %>
+
+<%= link_to "Change This Student", edit_student_path(@student.id)%>
+<br><br>
+<%= button_to "Delete", "/students/#{@student.id}", method: :delete %>
+<br><br>
+<%= link_to "Return to Students", students_path%>
