@@ -8,3 +8,11 @@
 <br>
 <p><%= link_to "See Students", students_path %></p>
 <p><%= link_to "Create New Duck", new_duck_path %></p>
+
+<br>
+
+<%= form_tag ducks_path, method: :get do %>
+  Search for a duck:
+  <%= search_field_tag :search, params[:search] %>
+  <%= submit_tag :Search %>
+<% end %>

@@ -1,7 +1,13 @@
 class DucksController < ApplicationController
 
   def index
-    @ducks = Duck.all
+    if params[:search]
+      @ducks = Duck.all.select do |duck|
+        duck.name.include?(params[:search])
+      end
+    else
+      @ducks = Duck.all
+    end
   end
 
   def show
@@ -50,7 +56,7 @@ class DucksController < ApplicationController
   private
 
   def duck_params
-    params.require(:duck).permit(:name, :description, :student_id)
+    params.require(:duck).permit(:name, :description, :student_id, :search)
   end
 
 end
