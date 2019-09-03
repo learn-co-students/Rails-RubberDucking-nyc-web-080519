@@ -1,0 +1,21 @@
+<h1>Student Info</h1>
+
+<div>
+  <p>Student Name: <%= @student.name %></p>
+  <p>Student Mod: <%= @student.mod %></p>
+  <ul>Student Ducks: 
+    <% if @ducks.length == 0 %>
+      <%= "This student has no ducks 🚫🦆" %>
+    <% else %>
+      <% @ducks.each do |duck| %>
+        <li>
+          <%= link_to duck.name, duck_path(duck) %>
+        </li>
+      <% end %>
+    <% end %>
+  </ul>
+
+  <%= button_to "Edit this student", edit_student_path(@student), method: :get %> <br>
+
+  <%= button_to "Return to list of all students", students_path, method: :get %>
+</div>

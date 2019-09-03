@@ -1,0 +1,12 @@
+<h1>Duck Info</h1>
+
+
+
+<div>
+  <p>Duck Name: <%= @duck.name %></p>
+  <p>Duck Description: <%= @duck.description %></p>
+  <p>Duck's Student: <%= link_to @student.name, student_path(@student)%></p>
+
+  <%= button_to "Edit this duck", edit_duck_path(@duck), method: :get %>
+  <%= button_to "Return to list of all ducks", ducks_path, method: :get %>
+</div>
