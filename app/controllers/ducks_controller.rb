@@ -27,9 +27,12 @@ class DucksController < ApplicationController
   end
 
   def update
-    if duck = Duck.find(params[:id])
-      duck.update(duck_params)
-      redirect_to duck_path(duck)
+    duck = Duck.find(params[:id])
+    
+    duck.update(duck_params)
+    
+    if duck.save
+      redirect_to duck
     else 
       render :edit 
     end 
@@ -38,6 +41,7 @@ class DucksController < ApplicationController
   def destroy 
     duck = Duck.find(params[:id])
     duck.destroy
+    flash[:notice] = "Duck deleted."
     redirect_to ducks_path 
   end 
 

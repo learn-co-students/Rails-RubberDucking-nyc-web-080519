@@ -13,9 +13,12 @@ class StudentsController < ApplicationController
   end
 
   def create
-    if Student.create(student_params)
-      redirect_to students_path 
+   @student = Student.new(student_params)
+    if @student.valid?
+      @student.save
+      redirect_to student_path(@student)
     else
+      flash[:messages] = @student.errors.full_messages
       render :new 
     end 
   end 
@@ -25,10 +28,12 @@ class StudentsController < ApplicationController
   end
 
   def update
-    if student = Student.find(params[:id])
-      student.update(student_params)
-      redirect_to student_path(student)
+    @student = Student.find(params[:id])
+    @student.update(student_params)
+    if @student.valid?
+      redirect_to student_path(@student)
     else 
+      flash[:messages] = @student.errors.full_messages
       render :edit 
     end
   end
@@ -36,7 +41,7 @@ class StudentsController < ApplicationController
   private
 
   def student_params
-    params.require(:student).permit(:name)
+    params.require(:student).permit(:name, :mod)
   end
 
 end

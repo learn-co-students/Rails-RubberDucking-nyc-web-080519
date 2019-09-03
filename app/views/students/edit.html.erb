@@ -1,7 +1,17 @@
 <h1><%= "Edit the name for #{@student.name}"  %></h1>
 
+<% if flash[:messages]%>
+  <ul>
+    <% flash[:messages].each do |message|%>
+      <li><%= message %></li>
+    <%end%>
+  </ul>
+<%end%>
+
 <%= form_for @student do |f| %>
   <%= f.label :name %>
-  <%= f.text_field :name, required: true %>
+  <%= f.text_field :name %>
+  <%= f.label :mod %>
+  <%= f.number_field :mod %>
   <%= f.submit "Edit Student" %>
 <% end %>
