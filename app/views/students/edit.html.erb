@@ -1,0 +1,9 @@
+<h1>Edit Student Form</h1>
+<%if flash[:messages]%>
+    <h2><%=flash[:messages]%></h2>
+<%end%>
+<%= form_for @student do |f| %>
+    <%= f.text_field "name" %>
+    <%= f.collection_select(:mod, [1,2,3,4,5], :to_s, :to_s ) %>
+    <%= f.submit%>
+<% end %>
