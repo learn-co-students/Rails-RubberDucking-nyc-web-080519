@@ -1,0 +1,13 @@
+<h1>Sign-Up-a-Student</h1>
+<% if flash[:messages] %>
+    <ul>
+    <% flash[:messages].each do|m| %>
+        <li><%= m %></li>
+    <% end %>
+    </ul>
+<% end %>
+<%= form_for @student do |f| %>
+    Name: <%= f.text_field :name %> <br>
+    Mod: <%= f.number_field :mod %> <br><br>
+    <%= f.submit :submit %>
+<% end %>

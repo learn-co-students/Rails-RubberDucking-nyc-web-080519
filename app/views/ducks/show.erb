@@ -1,0 +1,8 @@
+<h1><%= @duck.name %></h1>
+<h3>Description <%= @duck.description %></h3>
+<h5>I belong to <%= link_to @duck.student.name, student_path(@duck.student.id)%></h5>
+<%= link_to "Change This Duck", edit_duck_path(@duck.id)%>
+<br><br>
+<%= button_to "Delete", "/ducks/#{@duck.id}", method: :delete %>
+<br><br>
+<%= link_to "Return to Ducks", ducks_path%>
