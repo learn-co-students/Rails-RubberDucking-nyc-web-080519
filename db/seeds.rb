@@ -1,7 +1,11 @@
+Student.destroy_all
+Duck.destroy_all
+
 10.times do
-  Student.create(name: Faker::Name.name, mod: rand(1..5))
+  Student.create!(name: Faker::Name.name, mod: rand(1..5))
 end
 
-5.times do
-  Duck.create(name: Faker::Dog.meme_phrase, description: Faker::Dog.breed)
+40.times do
+  Duck.create!(name: Faker::Dog.meme_phrase, description: Faker::Dog.breed, student: Student.all.sample)
 end
+
