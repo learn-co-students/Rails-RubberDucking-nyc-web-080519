@@ -27,11 +27,11 @@ class StudentsController < ApplicationController
   end
 
   def update
-    student = Student.find(params[:id])
-    if student.update(student_params)
+    @student = Student.find(params[:id])
+    if @student.update(student_params)
       redirect_to student_url(student)
     else
-      flash.now[:errors] = student.errors.full_messages
+      flash.now[:errors] = @student.errors.full_messages
       render :new
     end
   end

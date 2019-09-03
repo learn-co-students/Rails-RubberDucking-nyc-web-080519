@@ -30,11 +30,11 @@ class DucksController < ApplicationController
   end
 
   def update
-    duck = Duck.find(params[:id])
-    if duck.update(duck_params)
+    @duck = Duck.find(params[:id])
+    if @duck.update(duck_params)
       redirect_to duck_url(duck)
     else
-      flash.now[:errors] = duck.errors.full_messages
+      flash.now[:errors] = @duck.errors.full_messages
       render :edit
     end
   end
