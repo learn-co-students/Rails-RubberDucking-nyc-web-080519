@@ -13,11 +13,11 @@ class StudentsController < ApplicationController
   end
 
   def create
-    student = Student.new(student_params)
-    if student.save
+    @student = Student.new(student_params)
+    if @student.save
       redirect_to student_url(student)
     else
-      flash.now[:errors] = student.errors.full_messages
+      flash.now[:errors] = @student.errors.full_messages
       render :new
     end
   end

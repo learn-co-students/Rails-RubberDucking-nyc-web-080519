@@ -14,12 +14,12 @@ class DucksController < ApplicationController
   end
 
   def create
-    duck = Duck.new(duck_params)
+    @duck = Duck.new(duck_params)
     @students = Student.all
-    if duck.save
+    if @duck.save
       redirect_to duck_url(duck)
     else
-      flash.now[:errors] = duck.errors.full_messages
+      flash.now[:errors] = @duck.errors.full_messages
       render :new
     end
   end
