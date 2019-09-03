@@ -13,11 +13,8 @@ class StudentsController < ApplicationController
   end
 
   def create
-    byebug
     student = Student.new(student_params)
-    byebug
     if student.save
-      byebug
       redirect_to student_url(student)
     else
       flash.now[:errors] = student.errors.full_messages
