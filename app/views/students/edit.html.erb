@@ -1,0 +1,13 @@
+<h1>Edit Student details</h1>
+
+<%if flash[:messages]%>
+  <h2><%=flash[:messages]%></h2>
+<%end%>
+
+<%= form_for @student do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %></br>
+  <%= f.label :mod %>
+  <%= f.text_area :mod %></br>
+  <%= f.submit :submit %>
+<% end %>

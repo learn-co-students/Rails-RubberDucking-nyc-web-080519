@@ -2,6 +2,10 @@
 
 <ul>
   <% @ducks.each do |duck| %>
-    <li> <%= duck.name %> </li>
+    <li> <%= link_to duck.name, duck_path(duck.id) %> </li>
   <% end %>
 </ul>
+
+<%= button_to "Create new Duck", new_duck_path, method: :get %>
+</br>
+<%= link_to "Show all students", students_path %>

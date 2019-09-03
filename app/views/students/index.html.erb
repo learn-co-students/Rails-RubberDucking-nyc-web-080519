@@ -2,6 +2,10 @@
 
 <ul>
   <% @students.each do |student| %>
-    <li> <%= student.name %> </li>
+    <li> <%= link_to student.name, student_path(student.id) %> </li>
   <% end %>
 </ul>
+
+<%= button_to "Create new Student", new_student_path, method: :get %>
+</br>
+<%= link_to "Show all ducks", ducks_path %>
